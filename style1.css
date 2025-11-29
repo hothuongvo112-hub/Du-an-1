@@ -1,0 +1,142 @@
+
+    body {
+        font-family: Arial, sans-serif;
+        background: #f3f5f9;
+        margin: 0;
+        padding: 0;
+    }
+
+    .title {
+        text-align: center;
+        font-size: 36px;
+        font-weight: bold;
+        color: #2ca0ff;
+        margin-top: 25px;
+    }
+
+    .tabs {
+        display: flex;
+        justify-content: center;
+        gap: 60px;
+        margin-top: 25px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .tabs span {
+        padding-bottom: 5px;
+        cursor: pointer;
+    }
+    .active-tab {
+        color: red;
+        border-bottom: 3px solid red;
+    }
+    .inactive-tab {
+        color: black;
+        border-bottom: 3px solid black;
+    }
+
+    /* PRODUCT LIST */
+    .product-box {
+        width: 430px;
+        background: white;
+        padding: 20px;
+        margin: 20px auto;
+        border-radius: 10px;
+    }
+    .product {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 15px;
+    }
+    .product img {
+        width: 90px;
+        border-radius: 8px;
+        margin-right: 15px;
+    }
+    .product-info {
+        flex: 1;
+    }
+    .price-red {
+        color: red;
+        font-weight: bold;
+    }
+    .price-old {
+        text-decoration: line-through;
+        color: gray;
+        font-size: 13px;
+    }
+    .qty {
+        width: 100px;
+    }
+
+    /* CART SUMMARY */
+    .container {
+        width: 430px;
+        background: white;
+        padding: 25px;
+        margin: 30px auto;
+        border-radius: 10px;
+    }
+
+    .row {
+        display: flex;
+        justify-content: space-between;
+        margin: 19px 0;
+        font-size: 15px;
+    }
+
+    /* PAYMENT */
+    .payment-box {
+        width: 430px;
+        background: white;
+        padding: 20px;
+        margin: 20px auto;
+        border-radius: 10px;
+    }
+    .method {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 12px 0;
+    }
+    .method img {
+        width: 45px;
+    }
+
+    /* CUSTOMER */
+    .box {
+        width: 430px;
+        background: white;
+        padding: 20px;
+        margin: 20px auto;
+        border-radius: 10px;
+    }
+    .info-row {
+        display: flex;
+        justify-content: space-between;
+        margin: 10px 0;
+    }
+    .tag {
+        background: #daf1ff;
+        padding: 4px 8px;
+        font-size: 12px;
+        border-radius: 6px;
+        color: #007bff;
+    }
+
+    /* BUTTON */
+    .btn-pay {
+        width: 470px;
+        background: #0094ff;
+        display: block;
+        margin: 15px auto;
+        padding: 15px 0;
+        text-align: center;
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+        border: none;
+    }
+

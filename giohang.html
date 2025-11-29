@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<title>Giỏ hàng của bạn</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Giỏ hàng của bạn</h1>
+
+<div class="container">
+
+    <!-- LEFT SIDE -->
+    <div class="cart-left" id="cartList"></div>
+
+    <!-- RIGHT SIDE -->
+    <div class="cart-right">
+
+        <!-- PROMOTION BOX -->
+        <div class="promo-box">
+            <div class="promo-title">
+                <span class="promo-icon">🎁</span>
+                Khuyến mãi hấp dẫn
+            </div>
+
+            <ul class="promo-list">
+                <li>Đặc quyền trợ giá lên đến 3 triệu khi thu cũ lên đời iPhone</li>
+                <li>Trả góp 0% lãi suất, tối đa 12 tháng, trả trước từ 10% qua CTTC hoặc 0đ qua thẻ tín dụng</li>
+                <li>Giảm ngay 5% tối đa 500k mua Apple Watch/Airpods khi mua iPhone</li>
+            </ul>
+        </div>
+
+        <!-- ORDER SUMMARY -->
+        <div class="summary-box">
+            <div class="summary-title">THÔNG TIN ĐƠN HÀNG</div>
+
+            <div class="summary-content">
+                <div class="summary-total" id="totalPrice">Tổng tiền: 0 đ</div>
+
+                <div class="invoice">
+                    <input type="checkbox"> Xuất hóa đơn
+                </div>
+
+                <button class="details-btn">Xem chi tiết đơn hàng</button>
+                <button class="checkout-btn">Đặt hàng</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+let products = [
+    {
+        id: 1,
+        name: "iPhone 16 Pro 128GB | Chính hãng VN/A - Titan Đen",
+        color: "Xanh da trời",
+        price: 31190000,
+        old: 31990000,
+        qty: 1,
+        img: "https://via.placeholder.com/120x140"
+    },
+    {
+        id: 2,
+        name: "iPhone 16 Pro 128GB | Chính hãng VN/A - Titan Đen",
+        color: "Xanh da trời",
+        price: 31190000,
+        old: 31990000,
+        qty: 1,
+        img: "https://via.placeholder.com/120x140"
+    }
+];
+
+function money(n) {
+    return n.toLocaleString("vi-VN") + "đ";
+}
+
+function render() {
+    let html = "";
+    let total = 0;
+
+    products.forEach(p => {
+        total += p.price * p.qty;
+        html += `
+        <div class="cart-item">
+            <img src="${p.img}">
+            <div class="info">
+                <div class="name">${p.name}</div>
+                <div class="color">Màu sắc: ${p.color}</div>
+
+                <div class="price-row">
+                    <div class="new-price">${money(p.price)}</div>
+                    <div class="old-price">${money(p.old)}</div>
+                </div>
+
+                <div class="qty">
+                    <button onclick="changeQty(${p.id}, -1)">-</button>
+                    <span>${p.qty}</span>
+                    <button onclick="changeQty(${p.id}, 1)">+</button>
+                </div>
+
+                <div class="item-total">Tổng: ${money(p.price * p.qty)}</div>
+            </div>
+
+            <div class="delete" onclick="removeItem(${p.id})">🗑️</div>
+        </div>
+        `;
+    });
+
+    document.getElementById("cartList").innerHTML = html;
+    document.getElementById("totalPrice").innerHTML = "Tổng tiền: " + money(total);
+}
+
+function changeQty(id, delta) {
+    const p = products.find(x => x.id === id);
+    if (!p) return;
+    p.qty = Math.max(1, p.qty + delta);
+    render();
+}
+
+function removeItem(id) {
+    products = products.filter(x => x.id !== id);
+    render();
+}
+
+render();
+</script>
+
+</body>
+</html>
